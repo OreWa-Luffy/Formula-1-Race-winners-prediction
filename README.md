@@ -31,7 +31,7 @@ To install and set up this project, follow these steps:
     ```
 2. Navigate to the project directory:
     ```sh
-    cd Formula-1-Race-winners-prediction
+    cd formula1prediction
     ```
 3. Install the required dependencies:
     ```sh
@@ -42,4 +42,4 @@ To install and set up this project, follow these steps:
 
 To use the project, run the following command:
 ```sh
-python predict.py
+python Main.py
