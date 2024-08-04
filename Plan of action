@@ -1,7 +1,35 @@
 Story requirement 1) The program needs to be able to select a driver, select a race, and then predict their results for that race
 
+task 1) Data collection
+
+task 2) Data preprocessing
+
+task 3) Model selection and training
+
+task 4) Implementing predictions
+
 Story requirement 2) The program needs to have filters, such as seeing driver's win chance for a certain year, what position they will get. ETC
+
+task 1) Feature engineering
+
+task 2) Model enhancement
+
+task 3) user Interface for filters
 
 Story requirement 3) The program needs to be able to automatically update the data that the program is using
 
+task 1) Identify and integrate data sources
+
+task 2) Data update automation
+
+task 3) Data validation
+
 Story requirement 4) The program needs to be released in a state for either a website, or a program.
+
+task 1) learn basic web/software development
+
+task 2) Develop user interface
+
+task 3) Back end development
+
+task 4) Deployment
