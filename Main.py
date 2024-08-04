@@ -63,3 +63,17 @@ def tune_hyperparameters(X_train, y_train):
     print(f'Best parameters: {grid_search.best_params_}')
     best_model = grid_search.best_estimator_
     return best_model
+
+
+def visualize_results(y_test,predictions):
+    plt.figure(figsize=(10, 6))
+    sns.scatterplot(x=y_test, y=predictions)
+    plt.xlabel('Actual Position')
+    plt.ylabel('Predicted Position')
+    plt.title('Actual vs Predicted Position')
+    plt.show()
+
+
+def main():
+    filepath = "archive/Formula1_2022-2024season_raceResults.csv"
+
