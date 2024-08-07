@@ -8,10 +8,12 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
+# Loads the data from the filepath
 def load_data(filepath):
     return pd.read_csv(filepath)
 
 
+# Checks the data is correct
 def inspect_data(dp):
     print(dp.head())
     print(dp.describe())
@@ -34,12 +36,14 @@ def preprocess_data(dp):
     return dp
 
 
+# selects features to target for getting predictions
 def select_features(dp):
     features = dp[['Driver', 'Avg_Finish', 'Track']]
     target = dp['Position']
     return features, target
 
 
+# Scales the features for the scope of the data
 def scale_features(X_train, X_test):
     scaler = StandardScaler()
     X_train_scaled = scaler.fit_transform(X_train)
@@ -47,12 +51,14 @@ def scale_features(X_train, X_test):
     return X_train_scaled, X_test_scaled
 
 
+# trains the model on the data
 def train_model(X_train, y_train):
     model = GradientBoostingRegressor()
     model.fit(X_train, y_train)
     return model
 
 
+# evaluates the margin of error on the model, getting the mean squared error and returns the data
 def evaluate_model(model, X_test, y_test):
     predictions = model.predict(X_test)
     mse = mean_squared_error(y_test, predictions)
@@ -62,6 +68,7 @@ def evaluate_model(model, X_test, y_test):
     return predictions, mse, rmse, mae
 
 
+# tunes the parameters to find the best parameters to use.
 def tune_hyperparameters(X_train, y_train):
     model = GradientBoostingRegressor()
     param_grid = {
@@ -78,6 +85,7 @@ def tune_hyperparameters(X_train, y_train):
     return best_model
 
 
+# validates the model between different models.
 def cross_validate_model(model, features, target):
     scores = cross_val_score(model, features, target, cv=5, scoring='neg_mean_squared_error')
     mean_mse = -scores.mean()
@@ -85,6 +93,7 @@ def cross_validate_model(model, features, target):
     return mean_mse
 
 
+# visualizes the results on a grid of predicted vs actual results
 def visualize_results(y_test, predictions):
     plt.figure(figsize=(10, 6))
     sns.scatterplot(x=y_test, y=predictions)
@@ -94,6 +103,7 @@ def visualize_results(y_test, predictions):
     plt.show()
 
 
+# main function that runs everything.
 def main():
     filepath = "archive/Formula1_2022-2024season_raceResults.csv"
     dp = load_data(filepath)
