@@ -16,7 +16,7 @@ def fetch_weather_data(lat_lon, date):
         return None
 
 
-# Uses a list of grand prix locations to store the lat and lon coords for later use
+# Uses a list of grand Prix locations to store the lat and lon coords for later use
 def get_lat_lon(location):
     location_coords = {
         "Sakhir Bahrain": (26.0325, 50.5106),
